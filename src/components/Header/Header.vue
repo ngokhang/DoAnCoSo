@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
     .header {
+        z-index: 10px;
         display: flex;
         justify-content: space-around;
         position: sticky;

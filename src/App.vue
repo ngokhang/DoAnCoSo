@@ -9,19 +9,18 @@ import Header from './components/Header/Header.vue';
 import Body from './components/Body/Body.vue';
 import Footer from './components/Footer/Footer.vue';
 
+
 export default {
   name: 'App',
   data() {
     return {
-      messageToBody: '',
     }
   },
   components: {
-    Header, Body, Footer
+    Header, 
+    Body,
+    Footer
   },
-  methods: {
-    
-  }
 }
 </script>
 

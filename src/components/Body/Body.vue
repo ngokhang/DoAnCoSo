@@ -1,6 +1,6 @@
 <template>
   <section class="body">
-      <router-view></router-view>
+    <router-view></router-view>
   </section>
 </template>
 

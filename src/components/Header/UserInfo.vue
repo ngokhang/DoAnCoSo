@@ -6,7 +6,7 @@
 export default {
     data() {
         return {
-            username_logged : 'Test'
+            username_logged : 'User'
         }
     },
     methods: {
