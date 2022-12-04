@@ -13,7 +13,7 @@ import UserInfo from './UserInfo.vue';
 export default {
   data() {
     return {
-      notLogged: false
+      notLogged: true
     }
   },
   components: {
@@ -22,7 +22,7 @@ export default {
   methods: {
     toggleStatus(stt) {
       if (stt) {
-        this.notLogged = !this.notLogged;
+        this.notLogged = stt;
       }
     }
   }

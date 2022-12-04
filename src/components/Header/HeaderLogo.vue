@@ -17,4 +17,7 @@ export default {
         align-items: center;
         width: 100px;
     }
+    a {
+      padding: 10px 0px;
+    }
 </style>

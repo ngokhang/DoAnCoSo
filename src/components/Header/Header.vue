@@ -26,5 +26,7 @@ export default {
         display: flex;
         justify-content: space-around;
         position: sticky;
+        top: 0;
+        background: #E7EFF8;
     }
 </style>

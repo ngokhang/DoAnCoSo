@@ -29,7 +29,7 @@ export default {
 * {
   padding: 0;
   margin: 0;
-  border: 0;
+  /* border: 0; */
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
@@ -43,5 +43,9 @@ html, body {
 img {
   width: 100%;
   object-fit: cover;
+}
+.container {
+  width: 1070px;
+  margin: 0 auto;
 }
 </style>

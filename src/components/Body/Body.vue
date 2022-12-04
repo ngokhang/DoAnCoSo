@@ -13,7 +13,6 @@ export default {
 .body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 800px;
 }

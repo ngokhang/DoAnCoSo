@@ -1,13 +1,16 @@
 <template>
-  <h1>HomePage</h1>
+  <SlideShow/>
 </template>
 
 <script>
-export default {
+import SlideShow from './SlideShow.vue';
 
+export default {
+  components: {
+    SlideShow
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>
