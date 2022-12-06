@@ -6,6 +6,7 @@
       <input type="text" name="Email" id="Email" placeholder="Email" v-model="email" />
       <label for="password">Password </label>
       <input type="password" name="password" id="password" placeholder="Password" v-model="password" />
+      <p v-bind:style="[loginStatus ? { color: 'green' } : { color: 'red' }]">{{ alert }}</p>
       <div class="nav-validation">
         <a href="#">Forgot Password?</a>
         <router-link to="/Register">Register now</router-link>
@@ -16,30 +17,40 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { useUserStore } from '../../storage/User.Store';
 
 export default {
   name: 'Login',
+  setup() {
+    const userStore = useUserStore();
+    return {
+      userStore,
+    };
+  },
   data() {
     return {
       email: '',
       password: '',
+      alert: '',
+      loginStatus: false,
     };
   },
   methods: {
-    login(event) {
-      event.preventDefault();
-      axios
-        .post('http://14.225.205.132:8000/api/login', {
-          email: this.email,
-          password: this.password,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    async login() {
+      const res = await this.userStore.login({
+        email: this.email,
+        password: this.password,
+      });
+      if (res) {
+        this.loginStatus = true;
+        this.alert = 'Đăng nhập thành công! Bạn sẽ được điều hướng về trang chủ sau 2s.';
+        setTimeout(() => {
+          this.$router.push('/');
+        }, 2000);
+      } else {
+        this.loginStatus = false;
+        this.alert = 'Email hoặc mật khẩu không đúng! Vui lòng kiểm tra lại.';
+      }
     },
   },
 };
