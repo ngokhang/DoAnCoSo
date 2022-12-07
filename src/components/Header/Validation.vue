@@ -1,7 +1,7 @@
 <template>
   <div class="header-validation" v-if="!userStore.isLogin">
-    <router-link to="/Login">Login</router-link>
-    <router-link to="/Register">Register</router-link>
+    <router-link to="/Login">Đăng nhập</router-link>
+    <router-link to="/Register">Đăng ký</router-link>
   </div>
   <div class="header-user" v-else>
     <UserInfo @change-status-log="toggleStatus" />

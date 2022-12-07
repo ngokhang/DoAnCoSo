@@ -1,9 +1,5 @@
 <template>
   <div class="wrapper">
-    <div class="path">
-      <router-link to="/">Home</router-link> <span>></span>
-      <router-link to="/Contact" class="active"> Contact</router-link>
-    </div>
     <div class="contact">
       <ul class="info">
         <li>ADDRESS <br> Yen Nghia - Ha Dong - Ha Noi city</li>
@@ -27,14 +23,8 @@ export default {
 </script>
 
 <style scoped>
-.path > a{
-  color: black;
-}
-a.active {
-  color: #e94b00;
-}
 .wrapper {
-  padding-top: 10px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;

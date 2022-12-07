@@ -2,18 +2,18 @@
     <div class="lession">
         <div class="lession-box">
             <h2 class="title">
-                Trac nghiem Tieng Anh
+                Trắc nghiệm tiếng anh
             </h2>
             <p class="text">Tổng hợp hàng ngàn câu trắc nghiệm Tiếng Anh Online và các đề thi chứng chỉ quốc tế TOEIC, TOEFL, IELTS giúp các bạn ôn luyện và đạt điểm tốt trong các kỳ thi Tiếng Anh.</p>
-            <router-link to="/Exam">Lam ngay</router-link>
+            <router-link to="/Exam">Làm ngay</router-link>
         </div>
     </div>
     <div class="lession02">
         <div class="lession02-img"></div>
         <div class="lession02-content">
-            <h2>Trac nghiem IT</h2>
+            <h2>Trắc nghiệm IT</h2>
             <p class="text">Hệ thống các bài trắc nghiệm online về tin học văn phòng, tin học cơ bản, lập trình, quản trị hệ thống, chứng chỉ quốc tế giúp các bạn ôn luyện và thi các chứng chỉ về CNTT.</p>
-            <router-link to="/Exam">Lam ngay</router-link>
+            <router-link to="/Exam">Làm ngay</router-link>
         </div>
     </div>
 </template>

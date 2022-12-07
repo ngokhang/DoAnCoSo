@@ -1,5 +1,5 @@
 <template>
-    <h2>THONG TIN LIEN HE</h2>
+    <h2>YOUR INFORMATION</h2>
     <form action="#" method="post" class="form">
             <div>
                 <label for="fullname">Fullname</label>
@@ -10,22 +10,22 @@
                 <input type="email" name="fullname" id="emailfb" class="inpinfo">
             </div>
             <div>
-                <label for="dienthoai">Dien thoai</label>
+                <label for="dienthoai">Your phone number</label>
                 <input type="text" name="dienthoai" id="dienthoai" class="inpinfo">
             </div>
             <div>
-                <label for="tieude">Tieu de</label>
+                <label for="tieude">Title</label>
                 <input type="text" name="tieude" id="tieude" class="inpinfo">
             </div>
             <div>
-                <label for="diachhi">Dia chi</label>
+                <label for="diachhi">Address</label>
                 <input type="text" name="diachi" id="diachi" class="inpinfo">
             </div>
             <div class="text-area">
-                <label for="noidung">Noi dung</label>
+                <label for="noidung">Content</label>
                 <textarea name="noidung" id="noidung" cols="30" rows="10" class="inpinfo"></textarea>
             </div>
-            <button class="button">Gui</button>
+            <button class="button">Send</button>
     </form>
 </template>
 
@@ -72,7 +72,7 @@ export default {
 
     .form button {
         display: inline-block;
-        width: 100px;
+        width: 150px;
         height: 50px;
         padding: 10px;
         font-size: 20px;

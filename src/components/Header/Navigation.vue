@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li v-for="(items) in listNav" :key="items" class="header-nav">
-        <router-link :to="`${listRoutes[`${items}`]}`" class="header-nav-item">{{ items }}</router-link>
+    <li v-for="(items, index) in listRoutes" :key="index" class="header-nav">
+        <router-link :to="`${items.path}`" class="header-nav-item">{{listNavVie[`${items.index}`]}}</router-link>
     </li>
   </ul>
 </template>
@@ -10,13 +10,25 @@
 export default {
     data() {
         return {
-            listNav: ['Home', 'Exam', 'Ranking', 'Contact'],
-            listRoutes: {
-                Home: '/Home',
-                Exam: '/Exam',
-                Ranking: '/Ranking',
-                Contact: '/Contact',
-            }
+            listRoutes: [
+                {
+                    index: 0,
+                    path: '/Home',
+                },
+                {
+                    index: 1,
+                    path: '/Exam',
+                }, 
+                {
+                    index: 2,
+                    path: '/Ranking',
+                }, 
+                {
+                    index: 3,
+                    path: '/Contact',
+                }
+            ],
+            listNavVie: ['Trang chủ', 'Vào thi', 'Bảng xếp hạng', 'Liên hệ']
         }
     }
 }

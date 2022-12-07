@@ -2,7 +2,7 @@
   <div class="userInfo">
     <img :src="avatar" class="imageAvatar" />
     <p>
-      Hello, {{ username_logged }} <span><router-link to="/" @click="logout">Logout</router-link></span>
+      Xin chào, {{ username_logged }} <span><router-link to="/" @click="logout">Đăng xuất</router-link></span>
     </p>
   </div>
 </template>

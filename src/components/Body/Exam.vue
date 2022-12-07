@@ -1,10 +1,17 @@
 <template>
   <div class="wrap" v-if="!finishedExam">
     <!-- <h1>Exam page</h1> -->
+    <div class="count-time" v-if="this.userStore.isLogin">
+      <p v-if="this.statusExam.start">{{timerCount}} <span>s</span> </p>
+      <p v-else>--</p>
+    </div>
+    <button @click="startExam()" v-if="(!this.statusExam.start && this.userStore.isLogin)" class="button">Bắt đầu làm</button>
+    <button @click="pauseExam()" v-if="this.statusExam.pause" class="button">Tạm dừng</button>
+    <button @click="continueExam()" v-if="this.statusExam.continue" class="button">Tiếp tục</button>
     <div v-for="(ques, index) in testData" :key="index" class="question">
       <p class="question-title">{{ ques.question }}</p>
       <div v-for="ans in ques.answers" :key="ans" class="question-answer">
-        <input type="radio" :id="ans" :value="ans" :name="`${index}`" @click="selectAnswer(ans, ques.correctAnswer)" />
+        <input type="radio" :id="ans" :value="ans" :name="`${index}`" @click="selectAnswer(ans, ques.correctAnswer)" :disabled="isPause"/>
         <label>{{ ans }}</label>
       </div>
     </div>
@@ -39,12 +46,54 @@ export default {
       preClick: null,
       curClick: null,
       idQuizzes: null,
+      timerCount: 60,
+      interval: null,
+      isPause: false,
+      statusExam: {
+        start: 0,
+        pause: 0, 
+        continue: 0,
+      },
+      tempTime: null,
     };
   },
-  computed: {
-    // ...mapState([''])
+  watch: {
+    timerCount(value) {
+      if (value === 0) {
+        this.clearCounter(this.interval);
+        this.finishExam();
+      }
+    }
   },
   methods: {
+    counter() {
+      this.interval = setInterval(() => {
+        this.timerCount--;
+      }, 1000);
+    },
+    clearCounter(id) {
+      clearInterval(id);
+    },  
+    startExam() {
+      this.statusExam.start = true;
+      this.statusExam.pause = true;
+      this.statusExam.continue = false;
+      this.counter();
+    },
+    pauseExam() {
+      this.isPause = true;
+      this.statusExam.pause = false;
+      this.statusExam.continue = true;
+      this.tempTime = this.timerCount;
+      this.clearCounter(this.interval);
+    },
+    continueExam() {
+      this.isPause = false;
+      this.statusExam.pause = true;
+      this.statusExam.continue = false;
+      this.timerCount = this.tempTime;
+      this.counter();
+    },
     selectAnswer(answer, correctAnswer) {
       this.curClick = answer;
       if (answer === correctAnswer && this.curClick !== this.preClick) {
@@ -75,11 +124,6 @@ export default {
       }
 
       this.finishedExam = true;
-      // const sto = setTimeout(() => {
-      //   window.location.reload();
-      // }, 10000);
-      // sto();
-      // clearTimeout(sto);
     },
   },
   beforeMount() {
@@ -96,7 +140,28 @@ export default {
 
 <style lang="scss" scoped>
 .wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px 0px;
+  .count-time {
+    width: 200px;
+    padding: 10px;
+    background-color: #ececec;
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 50%;
+
+    p {
+      font-size: 32px;
+      font-weight: bold;
+    }
+    span {
+      font-size: 20px;
+    }
+  }
 }
 .question {
   display: flex;
